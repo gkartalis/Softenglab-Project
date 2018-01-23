@@ -27,8 +27,7 @@ import javax.swing.SwingConstants;
 public class UserPan extends JFrame {
 	Database db = new Database();
 	private JPanel contentPane;
-	private JTextField txtDeparture;
-	private JTextField txtDestination;
+	private JTextField txtSearch;
 	private JTextField txtDate;
 	private JTable flightsTable;
 	private JTable table;
@@ -47,25 +46,10 @@ public class UserPan extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
-		
-		JLabel lblFrom = new JLabel("From:");
-		lblFrom.setBounds(6, 170, 39, 16);
-		contentPane.add(lblFrom);
-		
-		txtDeparture = new JTextField();
-		txtDeparture.setBounds(57, 165, 130, 26);
-		contentPane.add(txtDeparture);
-		txtDeparture.setColumns(10);
-		
-		JLabel lblTo = new JLabel("To:");
-		lblTo.setBounds(199, 170, 26, 16);
-		contentPane.add(lblTo);
-		
-		txtDestination = new JTextField();
-		txtDestination.setColumns(10);
-		txtDestination.setBounds(230, 165, 130, 26);
-		contentPane.add(txtDestination);
+		txtSearch = new JTextField();
+		txtSearch.setBounds(154, 165, 349, 26);
+		contentPane.add(txtSearch);
+		txtSearch.setColumns(10);
 		
 		JLabel lblDate = new JLabel("Date");
 		lblDate.setBounds(564, 245, 29, 16);
@@ -79,7 +63,7 @@ public class UserPan extends JFrame {
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				searchFlights();
 			}
 		});
 		btnSearch.setBounds(527, 165, 117, 29);
@@ -116,7 +100,6 @@ public class UserPan extends JFrame {
 		scrollPane.setViewportView(flightsTable);
 		
 		DefaultTableModel model = new DefaultTableModel();
-		Object[] columnsName = new Object[4];
 		flightsTable.setModel(model);
 		
 		JPanel panel = new JPanel();
@@ -134,50 +117,24 @@ public class UserPan extends JFrame {
 		announcement.setBounds(6, 33, 626, 113);
 		panel.add(announcement);
 		
-		columnsName[0] = "Flight ID";
-		columnsName[1] = "Departure";
-		columnsName[2] = "Destination";
-		columnsName[3] = "Available Seats";
-		
-		model.setColumnIdentifiers(columnsName);
-		
-		Object[] title = {
-				"Flight ID",
-				"Departure",
-				"Destination",
-				"Seats Available"
-				};
-         
-        model.setColumnIdentifiers(title);
-		
-		
-		Object[] rowData = new Object[6];
-		
-		for(int i = 0; i < flightList().size(); i++) {
-			
-			rowData[0] = flightList().get(i).getFlightID();
-			rowData[1] = flightList().get(i).getDeparture();
-			rowData[2] = flightList().get(i).getDestination();
-			rowData[3] = flightList().get(i).getSeatsAvailable();
-			
-			model.addRow(rowData);
-		}
-		System.out.println(flightList().size());
+		JLabel lblFlightInfo = new JLabel("Flight Information");
+		lblFlightInfo.setBounds(30, 170, 117, 16);
+		contentPane.add(lblFlightInfo);
 		
 	}
 	
 	
 	
-	public ArrayList<Flights> flightList(){
+	public ArrayList<Flights> flightList(String searchValue){
         
 		   ArrayList<Flights> list = new ArrayList<Flights>();
 		   Connection conn = db.getConnection();
 		   Statement st;
 		   ResultSet rs;
-
+		   String searchQuery = "SELECT * FROM `flights` WHERE CONCAT(`flightID`, `departure`, `destination`, `seatsAvailable`) LIKE '%"+searchValue+"%'";
 	   try {
 		   st = conn.createStatement();
-		   rs = st.executeQuery("SELECT `flightID`, `departure`, `destination`, `seatsAvailable` FROM `flights`");
+		   rs = st.executeQuery(searchQuery);
 	   
 		   Flights flights;
 		   while(rs.next()){
@@ -195,4 +152,36 @@ public class UserPan extends JFrame {
 	   }
 	   return list;
 	   }
+	
+	public void searchFlights() {
+		ArrayList<Flights> list = flightList(txtSearch.getText());
+		DefaultTableModel model = new DefaultTableModel();
+		
+		Object[] title = {
+						"Flight ID",
+						"Departure",
+						"Destination",
+						"Seats Available"
+						};
+		         
+		model.setColumnIdentifiers(title);
+		
+		Object[] rowData = new Object[6];
+
+		for(int i = 0; i < list.size(); i++) {	
+			
+			rowData[0] = list.get(i).getFlightID();
+			rowData[1] = list.get(i).getDeparture();
+			rowData[2] = list.get(i).getDestination();
+			rowData[3] = list.get(i).getSeatsAvailable();
+					
+			model.addRow(rowData);
+		}//if
+		flightsTable.setModel(model);
+		
+		System.out.println(list.size());
+				
+	}
+	
+	
 }

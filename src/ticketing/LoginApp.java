@@ -72,7 +72,7 @@ public class LoginApp extends JFrame {
 	                		db.fetchLatestAnnouncement();
 	                    UserPan UserP = new UserPan();
 	                    UserP.setVisible(true);
-	                    
+	                    UserP.searchFlights();
 	                    
 	                	//a pop-up box
 	                    JOptionPane.showMessageDialog(null, "You have logged in successfully as User","Success",
