@@ -10,19 +10,6 @@ public class Database {
 	PreparedStatement stmt;
 	ResultSet rs;
 	
-//	database(){
-//		try {
-//			Class.forName("com.mysql.jdbc.Driver");
-//			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/airtickets","root","phpGuru1!");
-////			stmt = conn.prepareStatement("Select * from Users where username=? and password =?");
-//			return conn
-//			
-//		}
-//		catch(Exception e){
-//			e.printStackTrace();
-//		}
-//	}
-	
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -144,5 +131,35 @@ public class Database {
 		}//if
 
 	}//fetchLatestAnnouncement()
+	
+//   public ArrayList<Flights> flightList(){
+//        
+//	   ArrayList<Flights> list = new ArrayList<Flights>();
+//	   Connection conn = getConnection();
+//	   Statement st;
+//	   ResultSet rs;
+//
+//   try {
+//	   st = conn.createStatement();
+//	   rs = st.executeQuery("SELECT `flightID`, `departure`, `destination`, `departureDate`, `time`, `seatsAvailable` FROM `flights`");
+//   
+//	   Flights flights;
+//	   while(rs.next()){
+//		   flights = new Flights(
+//			   rs.getInt("flightID"),
+//			   rs.getString("departure"),
+//			   rs.getString("destination"),
+//			   rs.getDate("departureDate"),
+//			   rs.getInt("time"),
+//			   rs.getInt("seatsAvailable")
+//		   );
+//		   list.add(flights);
+//	   }
+//	   
+//   } catch (SQLException ex) {
+//	   ex.printStackTrace();
+//   }
+//   return list;
+//   }
 }
 
