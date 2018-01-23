@@ -132,34 +132,35 @@ public class Database {
 
 	}//fetchLatestAnnouncement()
 	
-//   public ArrayList<Flights> flightList(){
-//        
-//	   ArrayList<Flights> list = new ArrayList<Flights>();
-//	   Connection conn = getConnection();
-//	   Statement st;
-//	   ResultSet rs;
-//
-//   try {
-//	   st = conn.createStatement();
-//	   rs = st.executeQuery("SELECT `flightID`, `departure`, `destination`, `departureDate`, `time`, `seatsAvailable` FROM `flights`");
-//   
-//	   Flights flights;
-//	   while(rs.next()){
-//		   flights = new Flights(
-//			   rs.getInt("flightID"),
-//			   rs.getString("departure"),
-//			   rs.getString("destination"),
-//			   rs.getDate("departureDate"),
-//			   rs.getInt("time"),
-//			   rs.getInt("seatsAvailable")
-//		   );
-//		   list.add(flights);
-//	   }
-//	   
-//   } catch (SQLException ex) {
-//	   ex.printStackTrace();
-//   }
-//   return list;
-//   }
+	
+	
+	
+	public ArrayList<Flights> flightList(String searchValue){
+        
+		   ArrayList<Flights> list = new ArrayList<Flights>();
+		   Connection conn = getConnection();
+		   Statement st;
+		   ResultSet rs;
+		   String searchQuery = "SELECT * FROM `flights` WHERE CONCAT(`flightID`, `departure`, `destination`, `seatsAvailable`) LIKE '%"+searchValue+"%'";
+	   try {
+		   st = conn.createStatement();
+		   rs = st.executeQuery(searchQuery);
+	   
+		   Flights flights;
+		   while(rs.next()){
+			   flights = new Flights(
+				   rs.getInt("flightID"),
+				   rs.getString("departure"),
+				   rs.getString("destination"),
+				   rs.getInt("seatsAvailable")
+			   );
+			   list.add(flights);
+		   }
+		   
+	   } catch (SQLException ex) {
+		   ex.printStackTrace();
+	   }
+	   return list;
+	   }
 }
 

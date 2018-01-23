@@ -122,39 +122,10 @@ public class UserPan extends JFrame {
 		contentPane.add(lblFlightInfo);
 		
 	}
-	
-	
-	
-	public ArrayList<Flights> flightList(String searchValue){
-        
-		   ArrayList<Flights> list = new ArrayList<Flights>();
-		   Connection conn = db.getConnection();
-		   Statement st;
-		   ResultSet rs;
-		   String searchQuery = "SELECT * FROM `flights` WHERE CONCAT(`flightID`, `departure`, `destination`, `seatsAvailable`) LIKE '%"+searchValue+"%'";
-	   try {
-		   st = conn.createStatement();
-		   rs = st.executeQuery(searchQuery);
-	   
-		   Flights flights;
-		   while(rs.next()){
-			   flights = new Flights(
-				   rs.getInt("flightID"),
-				   rs.getString("departure"),
-				   rs.getString("destination"),
-				   rs.getInt("seatsAvailable")
-			   );
-			   list.add(flights);
-		   }
-		   
-	   } catch (SQLException ex) {
-		   ex.printStackTrace();
-	   }
-	   return list;
-	   }
+
 	
 	public void searchFlights() {
-		ArrayList<Flights> list = flightList(txtSearch.getText());
+		ArrayList<Flights> list = db.flightList(txtSearch.getText());
 		DefaultTableModel model = new DefaultTableModel();
 		
 		Object[] title = {
