@@ -3,7 +3,6 @@ package ticketing;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -56,17 +55,16 @@ public class LoginApp extends JFrame {
 	                String pwd=null;
 	                pwd=String.copyValueOf(temp_pwd);
 	                //Print Username Password Debugging
-	                System.out.println("Username,Pwd:"+txtUsername.getText()+","+pwd);
-	                System.out.println(db.checkLogin(txtUsername.getText(), pwd));
+	                //System.out.println("Username,Pwd:"+txtUsername.getText()+","+pwd);
+	                //System.out.println(db.checkLogin(txtUsername.getText(), pwd));
 	                //The entered username and password are sent via "checkLogin()" which return boolean
+	                
 	                if(db.checkLogin(txtUsername.getText(), pwd)=="admin")
 	                {
 	                    dispose();
 	                    AdminPanel AdminP = new AdminPanel();
 	                    AdminP.setVisible(true);
-	                    //a pop-up box
-	                    JOptionPane.showMessageDialog(null, "You have logged in successfully as Admin","Success",
-	                                        JOptionPane.INFORMATION_MESSAGE);
+	                  
 	                }else if(db.checkLogin(txtUsername.getText(), pwd)=="user") {
 	                		dispose();
 	                		db.fetchLatestAnnouncement();

@@ -51,7 +51,6 @@ public class Database {
 	public void executeSqlQuery(String query, String message) {
 		Connection conn = getConnection();
 		Statement stmt;
-		JOptionPane.showMessageDialog(null,"PASSED");
 
 		try {
 			stmt = conn.createStatement();
@@ -69,27 +68,21 @@ public class Database {
 		
 	}
 	
-	public void printMessage(String message) {
-		System.out.print(message);
-
-	}
-	
 	public boolean isEmptySqlTable(String query) {
 		boolean result = true;
 		Connection conn = getConnection();
 		Statement stmt;
 		ResultSet rs;
-		JOptionPane.showMessageDialog(null,"PASSED EMPTY");
 		
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
 			if(rs.next() == true) {
 				result = false;
-				System.out.println(result+"Einai gematos o pinakas");
+				//Announcement Table Not Empty
 				
 			}else {
-				System.out.println(result+"Einai adeios o pinakas");
+				//Announcement Table Empty
 				
 			}
 		} catch (SQLException e) {
@@ -120,10 +113,6 @@ public class Database {
 					
 					String title = rs.getString("title");
 					String announcement = rs.getString("announcement");
-					//Print Latest Announcement To User via Warning JOptionPane
-//					JOptionPane.showMessageDialog(null, announcement,title,
-//			                JOptionPane.WARNING_MESSAGE);
-					
 					arr[0] = title;
 					arr[1] = announcement;
 					return arr;

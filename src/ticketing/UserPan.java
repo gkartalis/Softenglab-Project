@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+
+
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
@@ -49,12 +51,12 @@ public class UserPan extends JFrame {
 		txtSearch.setColumns(10);
 		
 		JLabel lblDate = new JLabel("Date");
-		lblDate.setBounds(564, 245, 29, 16);
+		lblDate.setBounds(560, 206, 29, 16);
 		contentPane.add(lblDate);
 		
 		txtDate = new JTextField();
 		txtDate.setColumns(10);
-		txtDate.setBounds(527, 265, 117, 26);
+		txtDate.setBounds(527, 234, 117, 26);
 		contentPane.add(txtDate);
 		
 		JButton btnSearch = new JButton("Search");
