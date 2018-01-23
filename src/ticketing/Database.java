@@ -101,16 +101,18 @@ public class Database {
 	};
 	
 	
-	public void fetchLatestAnnouncement() {
+	public String[] fetchLatestAnnouncement() {
 		Connection conn = getConnection();
 		String query = "SELECT 1 FROM `announcements` LIMIT 1;";
 		
+		String[] arr = new String[2];
+		arr[0] = "";
+		arr[1] = "";
 		if(!isEmptySqlTable(query)) {
 			
 			String query2 = "SELECT * FROM `announcements` WHERE `ID` = (SELECT MAX(ID) FROM `announcements`);";
 			Statement stmt;
 			ResultSet rs;
-			
 			try {
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(query2);
@@ -119,16 +121,21 @@ public class Database {
 					String title = rs.getString("title");
 					String announcement = rs.getString("announcement");
 					//Print Latest Announcement To User via Warning JOptionPane
-					JOptionPane.showMessageDialog(null, announcement,title,
-			                JOptionPane.WARNING_MESSAGE);
+//					JOptionPane.showMessageDialog(null, announcement,title,
+//			                JOptionPane.WARNING_MESSAGE);
 					
+					arr[0] = title;
+					arr[1] = announcement;
+					return arr;
 					
 				}
 				
 			}catch(Exception e) {
 				e.printStackTrace();
+				return arr;
 			}//catch
 		}//if
+		return arr;
 
 	}//fetchLatestAnnouncement()
 	

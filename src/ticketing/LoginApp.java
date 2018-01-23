@@ -74,14 +74,10 @@ public class LoginApp extends JFrame {
 	                    UserP.setVisible(true);
 	                    UserP.searchFlights();
 	                    
-	                	//a pop-up box
-	                    JOptionPane.showMessageDialog(null, "You have logged in successfully as User","Success",
-	                                        JOptionPane.INFORMATION_MESSAGE);
 	                }
 	                else
 	                {
-	                    //a pop-up box
-	                    JOptionPane.showMessageDialog(null, "Login failed!","Failed!!",
+	                    JOptionPane.showMessageDialog(null, "Login failed!","Failed! Try Again!",
 	                                        JOptionPane.ERROR_MESSAGE);
 	                }
 	            }//if
@@ -97,6 +93,7 @@ public class LoginApp extends JFrame {
 				txtPassword.setText(null);
 			}
 		});
+		
 		btnReset.setBounds(235, 178, 77, 29);
 		contentPane.add(btnReset);
 		
@@ -108,20 +105,4 @@ public class LoginApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(480,320);
 	}
-	
-//	public void selectLatestAnnouncement() {
-//		String query = "SELECT 1 FROM `announcements` LIMIT 1;";
-//		
-//		if(!db.isEmptySqlTable(query)) {
-//			query = "SELECT * FROM `announcements` WHERE `ID` = (SELECT MAX(ID) FROM `announcements`);";
-//			db.executeSqlQuery(query, "Completedd");
-////			while(db.rs.next()) {
-////				
-////			}
-//			
-//			JOptionPane.showMessageDialog(null, "Login failed!","Failed!!",
-//                    JOptionPane.WARNING_MESSAGE);
-//		}
-//	}	
-	
 }

@@ -30,15 +30,12 @@ public class UserPan extends JFrame {
 	private JTextField txtSearch;
 	private JTextField txtDate;
 	private JTable flightsTable;
-	private JTable table;
 
-	   
-	
-	
-	/**
-	 * Create the frame.
-	 */
 	public UserPan() {
+		
+		//fetch announcements from db
+		String[] arr = db.fetchLatestAnnouncement();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 650, 579);
 		contentPane = new JPanel();
@@ -77,25 +74,6 @@ public class UserPan extends JFrame {
 		scrollPane.setBounds(30, 198, 473, 353);
 		contentPane.add(scrollPane);
 		
-		
-		
-		
-//		Maybe ill post announcements from table inside panel
-//		instead of JoptionBox
-//		JPanel panel = new JPanel();
-//		panel.setBounds(6, 6, 638, 156);
-//		panel.setLayout(null);
-//		
-//		JLabel lblTitle = new JLabel("");
-//		lblTitle.setBounds(84, 6, 464, 16);
-//		
-//		JLabel lblAnnouncement = new JLabel("");
-//		lblAnnouncement.setBounds(6, 30, 626, 120);
-//		
-//		panel.add(lblTitle);
-//		panel.add(lblAnnouncement);
-//		contentPane.add(panel);
-
 		flightsTable = new JTable();
 		scrollPane.setViewportView(flightsTable);
 		
@@ -107,12 +85,12 @@ public class UserPan extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JLabel announcementTitle = new JLabel("Title");
+		JLabel announcementTitle = new JLabel(arr[0]);
 		announcementTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		announcementTitle.setBounds(6, 5, 626, 16);
 		panel.add(announcementTitle);
 		
-		JTextArea announcement = new JTextArea();
+		JTextArea announcement = new JTextArea(arr[1]);
 		announcement.setEditable(false);
 		announcement.setBounds(6, 33, 626, 113);
 		panel.add(announcement);
@@ -148,11 +126,9 @@ public class UserPan extends JFrame {
 					
 			model.addRow(rowData);
 		}//if
-		flightsTable.setModel(model);
 		
-		System.out.println(list.size());
-				
-	}
+		flightsTable.setModel(model);
+	}//searchFlights()
 	
 	
-}
+}//UserPan
