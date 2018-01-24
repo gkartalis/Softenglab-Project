@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JTextField;
@@ -24,6 +25,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
@@ -41,10 +43,10 @@ public class UserPan extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtSearch;
 	private JTable flightsTable;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txtName;
+	private JTextField txtSurname;
+	private JTextField txtFlightID;
+	private JTextField txtPassport;
 
 	public UserPan() {
 		
@@ -94,7 +96,7 @@ public class UserPan extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				flightsTable.getSelectedRow();//returns selected row[i] i = 
 				String value = flightsTable.getModel().getValueAt(flightsTable.getSelectedRow(),0).toString();
-				System.out.println(value);
+				txtFlightID.setText(value);
 			}
 		});
 		
@@ -132,11 +134,28 @@ public class UserPan extends JFrame {
 		JButton btnBookFlight = new JButton("Book Flight");
 		btnBookFlight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//EDW DOULEIA DOULEIA DOULEIA
-				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-				String day = df.format(dateChooser.getDate());
-				int sum = 1;
-				db.addStatistics(sum, day);
+				 Date date = dateChooser.getDate();
+				    if (date == null) {
+				    	JOptionPane.showMessageDialog(null, "Date Required","Failed! Date is Required!",
+	                            JOptionPane.ERROR_MESSAGE);
+				    }else {
+					    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+					    	String day = df.format(dateChooser.getDate());
+						    	if(txtName.getText().isEmpty() || txtSurname.getText().isEmpty() || txtFlightID.getText().isEmpty() || txtPassport.getText().isEmpty()) {
+						    		JOptionPane.showMessageDialog(null, "All Fields Required","Failed! Complete all Fields!",
+				                            JOptionPane.ERROR_MESSAGE);
+						    	}else {
+						    		int sum = 1;
+						    		db.addStatistics(sum, day);
+						    		try {
+										TimeUnit.SECONDS.sleep(3);
+										JOptionPane.showMessageDialog(null,"Printing Ticket Completed!");
+									} catch (InterruptedException e1) {
+										e1.printStackTrace();
+									}
+						    		
+						    	}
+				   }	
 			}
 		});
 		btnBookFlight.setBounds(684, 513, 128, 29);
@@ -171,33 +190,34 @@ public class UserPan extends JFrame {
 		lblPassenger.setBounds(671, 110, 141, 26);
 		contentPane.add(lblPassenger);
 		
-		textField = new JTextField();
-		textField.setBounds(684, 185, 130, 26);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtName = new JTextField();
+		txtName.setBounds(684, 185, 130, 26);
+		contentPane.add(txtName);
+		txtName.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(682, 256, 130, 26);
-		contentPane.add(textField_1);
+		txtSurname = new JTextField();
+		txtSurname.setColumns(10);
+		txtSurname.setBounds(682, 256, 130, 26);
+		contentPane.add(txtSurname);
 		
 		JLabel lblSelectedFlightId = new JLabel("Selected Flight ID");
 		lblSelectedFlightId.setBounds(684, 288, 111, 16);
 		contentPane.add(lblSelectedFlightId);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(682, 313, 130, 26);
-		contentPane.add(textField_2);
+		txtFlightID = new JTextField();
+		txtFlightID.setEditable(false);
+		txtFlightID.setColumns(10);
+		txtFlightID.setBounds(682, 313, 130, 26);
+		contentPane.add(txtFlightID);
 		
 		JLabel lblPassengerId = new JLabel("ID/Passport No");
 		lblPassengerId.setBounds(684, 351, 111, 16);
 		contentPane.add(lblPassengerId);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(682, 379, 130, 26);
-		contentPane.add(textField_3);
+		txtPassport = new JTextField();
+		txtPassport.setColumns(10);
+		txtPassport.setBounds(682, 379, 130, 26);
+		contentPane.add(txtPassport);
 	}
 
 	

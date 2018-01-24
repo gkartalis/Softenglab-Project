@@ -55,11 +55,11 @@ public class Database {
 		try {
 			stmt = conn.createStatement();
 			if(stmt.executeUpdate(query) == 1) {
-				JOptionPane.showMessageDialog(null,"Data "+message+" succesfully");
+				JOptionPane.showMessageDialog(null,message+" Succesfully");
 				
 				
 			}else {
-				JOptionPane.showMessageDialog(null,"Data NOT "+message);
+				JOptionPane.showMessageDialog(null,message+" Not Succesfully");
 			}
 		} catch (SQLException e) {
 

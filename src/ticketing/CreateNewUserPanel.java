@@ -5,6 +5,7 @@ import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JCheckBox;
@@ -20,7 +21,6 @@ public class CreateNewUserPanel {
 	private JTextField txtUsername;
 	private JTextField txtSurname;
 	private JPasswordField txtPassword;
-	private JPasswordField txtPasswordNew;
 	Database db = new Database();
 	/**
 	 * Create the application.
@@ -43,7 +43,7 @@ public class CreateNewUserPanel {
 	public void initialize() {
 		frmAddNewUser = new JFrame();
 		frmAddNewUser.setTitle("Add New User");
-		frmAddNewUser.setBounds(100, 100, 350, 400);
+		frmAddNewUser.setBounds(100, 100, 350, 330);
 		frmAddNewUser.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmAddNewUser.getContentPane().setLayout(null);
 		
@@ -82,46 +82,40 @@ public class CreateNewUserPanel {
 		txtPassword.setBounds(166, 150, 130, 26);
 		frmAddNewUser.getContentPane().add(txtPassword);
 		
-		JLabel lblRetypePassword = new JLabel("Retype Password");
-		lblRetypePassword.setBounds(40, 190, 114, 16);
-		frmAddNewUser.getContentPane().add(lblRetypePassword);
-		
-		txtPasswordNew = new JPasswordField();
-		txtPasswordNew.setBounds(166, 185, 130, 26);
-		frmAddNewUser.getContentPane().add(txtPasswordNew);
-		
 		JCheckBox checkAdmin = new JCheckBox("Check for Administrator Rights");
-		checkAdmin.setBounds(40, 225, 253, 26);
+		checkAdmin.setBounds(40, 186, 253, 26);
 		frmAddNewUser.getContentPane().add(checkAdmin);
 		
 		
 		//Add additional checks (dbl check password)
+		//Check if all boxes
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				 if(evt.getSource()==btnSubmit)
-		            {
 					 	int check = 0;
 					 	char[] temp_pwd=txtPassword.getPassword();
 		                String pwd=null;
 		                pwd=String.copyValueOf(temp_pwd);
 		                
-		                if(checkAdmin.isSelected()) {
-		                		check = 1;
-		                	
-		                }
-		               
-		                String query = "INSERT INTO `Users` (`name`, `surname`, `username`, `password`,`admin`)"+
-		                	" VALUES ('"+txtName.getText()+"', '"+txtSurname.getText()+"','"+txtUsername.getText()+"','"+pwd+"','"+check+"')";
-				 		                		
-						db.executeSqlQuery(query,"inserted");
-				
-		            }
+				if(txtName.getText().isEmpty() || txtSurname.getText().isEmpty() || txtUsername.getText().isEmpty() || pwd.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "All Fields Required","Failed! Complete all Fields!",
+                            JOptionPane.ERROR_MESSAGE);
+				}else {
+					
+					if(checkAdmin.isSelected()) {
+	                		check = 1;
+	                }
+	                String query = "INSERT INTO `Users` (`name`, `surname`, `username`, `password`,`admin`)"+
+	                	" VALUES ('"+txtName.getText()+"', '"+txtSurname.getText()+"','"+txtUsername.getText()+"','"+pwd+"','"+check+"')";              		
+					db.executeSqlQuery(query,"inserted");
+					frmAddNewUser.dispose();
+				}
+		                
 			}
 
 
 		});
-		btnSubmit.setBounds(40, 283, 117, 29);
+		btnSubmit.setBounds(40, 235, 117, 29);
 		frmAddNewUser.getContentPane().add(btnSubmit);
 		
 		JButton btnBack = new JButton("Back");
@@ -130,7 +124,7 @@ public class CreateNewUserPanel {
 				frmAddNewUser.dispose();
 			}
 		});
-		btnBack.setBounds(179, 283, 117, 29);
+		btnBack.setBounds(179, 235, 117, 29);
 		frmAddNewUser.getContentPane().add(btnBack);
 		
 	}

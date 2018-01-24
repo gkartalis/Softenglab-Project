@@ -7,6 +7,8 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -35,6 +37,7 @@ public class PostAnouncement {
 	
 	public void initialize() {
 		frame = new JFrame();
+		frame.setTitle("Post Announcement");
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -42,15 +45,21 @@ public class PostAnouncement {
 		JTextArea txtAnnouncement = new JTextArea();
 		txtAnnouncement.setBounds(160, 68, 252, 152);
 		frame.getContentPane().add(txtAnnouncement);
+		txtAnnouncement.setLineWrap(true);
+		txtAnnouncement.setWrapStyleWord(true);
 		
 		JButton btnPost = new JButton("Post");
 		btnPost.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String query = "INSERT INTO `announcements`(`title`, `announcement`) " +
-							   "VALUES ('"+txtAnnouncementTitle.getText()+"','"+txtAnnouncement.getText()+"')";
-				
-			 		                		
-					db.executeSqlQuery(query,"Announcement inserted Succesfully");
+				if(txtAnnouncementTitle.getText().isEmpty() || txtAnnouncement.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "All Fields Required","Failed! Complete all Fields!",
+                            JOptionPane.ERROR_MESSAGE);
+				}else {					
+					String query = "INSERT INTO `announcements`(`title`, `announcement`) " +
+								   "VALUES ('"+txtAnnouncementTitle.getText()+"','"+txtAnnouncement.getText()+"')";
+					db.executeSqlQuery(query,"Announcement inserted");
+					frame.dispose();
+				}
 			}
 		});
 		btnPost.setBounds(158, 232, 80, 29);
