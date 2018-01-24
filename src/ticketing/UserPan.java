@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JTextField;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -141,6 +142,10 @@ public class UserPan extends JFrame {
 		rdbtnEconomy.setBounds(521, 314, 141, 23);
 		contentPane.add(rdbtnEconomy);
 		
+		ButtonGroup group = new ButtonGroup();
+		rdbtnEconomy.setSelected(true);
+		group.add(rdbtnBusiness);
+		group.add(rdbtnEconomy);
 		JLabel lblSelectClass = new JLabel("Select Class");
 		lblSelectClass.setBounds(527, 256, 93, 16);
 		contentPane.add(lblSelectClass);
