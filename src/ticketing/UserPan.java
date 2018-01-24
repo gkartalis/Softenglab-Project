@@ -34,12 +34,17 @@ import com.toedter.components.JSpinField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JRadioButton;
+import java.awt.Font;
 
 public class UserPan extends JFrame {
 	Database db = new Database();
 	private JPanel contentPane;
 	private JTextField txtSearch;
 	private JTable flightsTable;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
 
 	public UserPan() {
 		
@@ -54,12 +59,13 @@ public class UserPan extends JFrame {
 		contentPane.setLayout(null);
 		
 		txtSearch = new JTextField();
-		txtSearch.setBounds(154, 165, 349, 26);
+		txtSearch.setToolTipText("Type here Flight information in order to filter the Flights");
+		txtSearch.setBounds(154, 148, 349, 26);
 		contentPane.add(txtSearch);
 		txtSearch.setColumns(10);
 		
 		JLabel lblDate = new JLabel("Choose Flight Date");
-		lblDate.setBounds(521, 199, 123, 16);
+		lblDate.setBounds(531, 190, 123, 16);
 		contentPane.add(lblDate);
 		
 		JButton btnSearch = new JButton("Search");
@@ -68,13 +74,13 @@ public class UserPan extends JFrame {
 				searchFlights();
 			}
 		});
-		btnSearch.setBounds(527, 165, 117, 29);
+		btnSearch.setBounds(521, 148, 117, 29);
 		contentPane.add(btnSearch);
 		
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(30, 198, 473, 353);
+		scrollPane.setBounds(30, 189, 473, 353);
 		contentPane.add(scrollPane);
 		
 		flightsTable = new JTable();
@@ -96,7 +102,7 @@ public class UserPan extends JFrame {
 		flightsTable.setModel(model);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(6, 6, 638, 152);
+		panel.setBounds(6, 6, 638, 130);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -107,17 +113,18 @@ public class UserPan extends JFrame {
 		
 		JTextArea announcement = new JTextArea(arr[1]);
 		announcement.setEditable(false);
-		announcement.setBounds(6, 33, 626, 113);
+		announcement.setBounds(6, 33, 632, 90);
 		panel.add(announcement);
 		//Make announcement textArea Responsive
 		announcement.setLineWrap(true);
 		announcement.setWrapStyleWord(true);
 		
 		JLabel lblFlightInfo = new JLabel("Flight Information");
-		lblFlightInfo.setBounds(30, 170, 117, 16);
+		lblFlightInfo.setBounds(30, 148, 117, 16);
 		contentPane.add(lblFlightInfo);
 		
 		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setToolTipText("Choose Departure Date for Selected Flight");
 		dateChooser.setBounds(525, 218, 119, 26);
 		contentPane.add(dateChooser);
 		
@@ -125,13 +132,14 @@ public class UserPan extends JFrame {
 		JButton btnBookFlight = new JButton("Book Flight");
 		btnBookFlight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//EDW DOULEIA DOULEIA DOULEIA
 				DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 				String day = df.format(dateChooser.getDate());
 				int sum = 1;
 				db.addStatistics(sum, day);
 			}
 		});
-		btnBookFlight.setBounds(527, 522, 117, 29);
+		btnBookFlight.setBounds(684, 513, 128, 29);
 		contentPane.add(btnBookFlight);
 		
 		JRadioButton rdbtnBusiness = new JRadioButton("Business");
@@ -149,6 +157,47 @@ public class UserPan extends JFrame {
 		JLabel lblSelectClass = new JLabel("Select Class");
 		lblSelectClass.setBounds(527, 256, 93, 16);
 		contentPane.add(lblSelectClass);
+		
+		JLabel lblName = new JLabel("Passenger Name");
+		lblName.setBounds(684, 153, 111, 16);
+		contentPane.add(lblName);
+		
+		JLabel lblPassengerSurname = new JLabel("Passenger Surname");
+		lblPassengerSurname.setBounds(684, 228, 128, 16);
+		contentPane.add(lblPassengerSurname);
+		
+		JLabel lblPassenger = new JLabel("Passenger Details");
+		lblPassenger.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblPassenger.setBounds(671, 110, 141, 26);
+		contentPane.add(lblPassenger);
+		
+		textField = new JTextField();
+		textField.setBounds(684, 185, 130, 26);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(682, 256, 130, 26);
+		contentPane.add(textField_1);
+		
+		JLabel lblSelectedFlightId = new JLabel("Selected Flight ID");
+		lblSelectedFlightId.setBounds(684, 288, 111, 16);
+		contentPane.add(lblSelectedFlightId);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(682, 313, 130, 26);
+		contentPane.add(textField_2);
+		
+		JLabel lblPassengerId = new JLabel("ID/Passport No");
+		lblPassengerId.setBounds(684, 351, 111, 16);
+		contentPane.add(lblPassengerId);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(682, 379, 130, 26);
+		contentPane.add(textField_3);
 	}
 
 	
