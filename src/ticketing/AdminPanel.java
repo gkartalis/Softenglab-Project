@@ -44,6 +44,7 @@ public class AdminPanel extends JFrame {
 		JButton btnStatistics = new JButton("View Statistics");
 		btnStatistics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ViewStats viewStats = new ViewStats();
 			}
 		});
 		btnStatistics.setBounds(155, 118, 147, 46);
@@ -52,12 +53,9 @@ public class AdminPanel extends JFrame {
 		JButton btnPost = new JButton("Post announcement");
 		btnPost.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(e.getSource()==btnPost)
-	            {
-
+				
 				 PostAnouncement Post = new PostAnouncement();
-				 
-	            }
+			
 			}
 		});
 		btnPost.setBounds(155, 190, 147, 46);

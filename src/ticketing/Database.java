@@ -158,5 +158,51 @@ public class Database {
 	   }
 	   return list;
 	   }
+	
+	public void addStatistics(int sum, String day) {
+		
+		Connection conn = getConnection();
+		String queryCheck = "SELECT * FROM `Statistics` WHERE `date` = '"+ day +"' ";
+		ResultSet rs;
+		Statement stmt;
+		Statement stmtCheck;
+		
+		try {
+			stmtCheck = conn.createStatement();
+			rs = stmtCheck.executeQuery(queryCheck);
+			if(rs.next()) {
+				System.out.println("Yparxw san hmerominia hdh edw");
+				String queryUpdate = "UPDATE `Statistics` SET `bookings` = `bookings` + 1 WHERE `date` = '"+day+"';";
+				stmt = conn.createStatement();
+				stmt.executeUpdate(queryUpdate);
+			}else {
+				String queryInsert = "INSERT INTO `Statistics` (`date`, `bookings`) VALUES ('"+day+"', 1);";
+				stmt = conn.createStatement();
+				stmt.executeUpdate(queryInsert);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	//show Statistics by pressing Show button on ViewStats panel
+	public int showStatistics(String date) {
+		Connection conn = getConnection();
+		String query = "SELECT * FROM `Statistics` WHERE `date` = '"+ date +"' ";
+		Statement stmt;
+		int bookings = 0;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			while(rs.next()) {
+				bookings = rs.getInt("bookings");
+			}
+			return bookings;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return bookings;
+		}
+	}
 }
 
