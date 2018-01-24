@@ -131,7 +131,7 @@ public class UserPan extends JFrame {
 		contentPane.add(dateChooser);
 		
 		
-		JButton btnBookFlight = new JButton("Book Flight");
+		JButton btnBookFlight = new JButton("Print Ticket");
 		btnBookFlight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 Date date = dateChooser.getDate();
