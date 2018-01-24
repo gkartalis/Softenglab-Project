@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 
 public class PostAnouncement {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField txtAnnouncementTitle;
 	Database db = new Database();
 	
@@ -22,11 +22,18 @@ public class PostAnouncement {
 	public PostAnouncement() {
 		initialize();
 	}
-
+	private static PostAnouncement obj = null;
+	
+	public static PostAnouncement getObj() {
+		if(obj == null) {
+			obj = new PostAnouncement();
+		}return obj;
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	
+	public void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -81,6 +88,6 @@ public class PostAnouncement {
 		lblAnnouncement.setBounds(15, 68, 133, 16);
 		frame.getContentPane().add(lblAnnouncement);
 		
-		frame.setVisible(true);
+		
 	}
 }

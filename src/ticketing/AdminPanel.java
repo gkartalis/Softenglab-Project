@@ -2,6 +2,7 @@ package ticketing;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -31,10 +32,7 @@ public class AdminPanel extends JFrame {
 		JButton btnCreate = new JButton("Create New User");
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-					 CreateNewUserPanel createNew = new CreateNewUserPanel();
-//					add something that prevents button to be clicked again and after closing CreateNewUser re - enable it	 
-//					 btnCreate.setEnabled(false);
+					 CreateNewUserPanel.getObj().frmAddNewUser.setVisible(true);
 		            }
 			
 		});
@@ -44,7 +42,8 @@ public class AdminPanel extends JFrame {
 		JButton btnStatistics = new JButton("View Statistics");
 		btnStatistics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ViewStats viewStats = new ViewStats();
+				
+				ViewStats.getObj().frmViewStatistics.setVisible(true);
 			}
 		});
 		btnStatistics.setBounds(155, 118, 147, 46);
@@ -53,9 +52,7 @@ public class AdminPanel extends JFrame {
 		JButton btnPost = new JButton("Post announcement");
 		btnPost.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				 PostAnouncement Post = new PostAnouncement();
-			
+				 PostAnouncement.getObj().frame.setVisible(true);
 			}
 		});
 		btnPost.setBounds(155, 190, 147, 46);

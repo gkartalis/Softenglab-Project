@@ -32,9 +32,15 @@ public class CreateNewUserPanel {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	private static CreateNewUserPanel obj = null;
 	
+	public static CreateNewUserPanel getObj() {
+		if(obj == null) {
+			obj = new CreateNewUserPanel();
+		}return obj;
+	}
 	
-	private void initialize() {
+	public void initialize() {
 		frmAddNewUser = new JFrame();
 		frmAddNewUser.setTitle("Add New User");
 		frmAddNewUser.setBounds(100, 100, 350, 400);
@@ -113,7 +119,7 @@ public class CreateNewUserPanel {
 		            }
 			}
 
-//			}
+
 		});
 		btnSubmit.setBounds(40, 283, 117, 29);
 		frmAddNewUser.getContentPane().add(btnSubmit);
@@ -127,6 +133,5 @@ public class CreateNewUserPanel {
 		btnBack.setBounds(179, 283, 117, 29);
 		frmAddNewUser.getContentPane().add(btnBack);
 		
-		frmAddNewUser.setVisible(true);
 	}
 }

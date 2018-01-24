@@ -15,36 +15,26 @@ import java.awt.event.ActionEvent;
 
 public class ViewStats {
 
-	private JFrame frmViewStatistics;
+	JFrame frmViewStatistics;
 	private JTextField txtSoldTickets;
 
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					ViewStats window = new ViewStats();
-//					window.frmViewStatistics.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-//
-//	/**
-//	 * Create the application.
-//	 */
+
 	public ViewStats() {
 		initialize();
 	}
-
+	
+	private static ViewStats obj = null;
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public static ViewStats getObj() {
+		if(obj == null) {
+			obj = new ViewStats();
+		}return obj;
+	}
+	
+	
+	public void initialize() {
 		Database db = new Database();
 		frmViewStatistics = new JFrame();
 		frmViewStatistics.setTitle("View Statistics");
@@ -78,10 +68,20 @@ public class ViewStats {
 				txtSoldTickets.setText(String.valueOf(db.showStatistics(date)));
 			}
 		});
-		btnShow.setBounds(194, 143, 117, 29);
+		btnShow.setBounds(65, 143, 117, 29);
 		frmViewStatistics.getContentPane().add(btnShow);
 		
-		frmViewStatistics.setVisible(true);
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmViewStatistics.dispose();
+			}
+		});
+		btnBack.setBounds(194, 141, 117, 29);
+		frmViewStatistics.getContentPane().add(btnBack);
+		
 	}
+
+
 	
 }
