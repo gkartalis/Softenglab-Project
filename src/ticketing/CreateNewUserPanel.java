@@ -1,8 +1,5 @@
 package ticketing;
 
-import java.awt.EventQueue;
-import java.awt.Window;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -12,8 +9,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Component;
-import javax.swing.Box;
+
 
 public class CreateNewUserPanel {
 	JFrame frmAddNewUser;
@@ -93,9 +89,9 @@ public class CreateNewUserPanel {
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 					 	int check = 0;
-					 	char[] temp_pwd=txtPassword.getPassword();
+					 	char[] tempPwd=txtPassword.getPassword();
 		                String pwd=null;
-		                pwd=String.copyValueOf(temp_pwd);
+		                pwd=String.copyValueOf(tempPwd);
 		                
 				if(txtName.getText().isEmpty() || txtSurname.getText().isEmpty() || txtUsername.getText().isEmpty() || pwd.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "All Fields Required","Failed! Complete all Fields!",

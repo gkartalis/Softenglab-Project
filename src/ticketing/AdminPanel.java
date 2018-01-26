@@ -1,13 +1,8 @@
 package ticketing;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.Window;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -16,7 +11,6 @@ public class AdminPanel extends JFrame {
 
 	private JPanel contentPane;
 	Database db = new Database();
-
 	/**
 	 * Create the frame.
 	 */
@@ -42,7 +36,6 @@ public class AdminPanel extends JFrame {
 		JButton btnStatistics = new JButton("View Statistics");
 		btnStatistics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				ViewStats.getObj().frmViewStatistics.setVisible(true);
 			}
 		});

@@ -1,8 +1,5 @@
 package ticketing;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -13,7 +10,6 @@ public class LoginApp extends JFrame {
 	 JPanel contentPane;
 	 JPasswordField txtPassword;
 	 JTextField txtUsername;
-	 private JFrame frame;
 	 Database db = new Database();
 
 	
@@ -47,30 +43,24 @@ public class LoginApp extends JFrame {
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
-				 //checks if the button clicked
-	            if(e.getSource()==btnLogin)
-	            {
-	                char[] temp_pwd=txtPassword.getPassword();
+			
+	                char[] tempPWD=txtPassword.getPassword();
 	                String pwd=null;
-	                pwd=String.copyValueOf(temp_pwd);
-	                //Print Username Password Debugging
-	                //System.out.println("Username,Pwd:"+txtUsername.getText()+","+pwd);
-	                //System.out.println(db.checkLogin(txtUsername.getText(), pwd));
-	                //The entered username and password are sent via "checkLogin()" which return boolean
-	                
+	                pwd=String.copyValueOf(tempPWD);
 	                if(db.checkLogin(txtUsername.getText(), pwd)=="admin")
 	                {
 	                    dispose();
-	                    AdminPanel AdminP = new AdminPanel();
-	                    AdminP.setVisible(true);
+	                    AdminPanel adminP = new AdminPanel();
+	                    adminP.setVisible(true);
 	                  
 	                }else if(db.checkLogin(txtUsername.getText(), pwd)=="user") {
 	                		dispose();
 	                		db.fetchLatestAnnouncement();
-	                    UserPan UserP = new UserPan();
-	                    UserP.setVisible(true);
-	                    UserP.searchFlights();
+	                    UserPan userP = new UserPan();
+	                    userP.setVisible(true);
+	                    userP.searchFlights();
 	                    
 	                }
 	                else
@@ -79,8 +69,7 @@ public class LoginApp extends JFrame {
 	                                        JOptionPane.ERROR_MESSAGE);
 	                }
 	            }//if
-			}
-		});
+			});
 		btnLogin.setBounds(146, 178, 77, 29);
 		contentPane.add(btnLogin);
 		

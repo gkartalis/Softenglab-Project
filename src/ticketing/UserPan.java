@@ -50,7 +50,6 @@ public class UserPan extends JFrame {
 
 	public UserPan() {
 		
-		//fetch announcements from db
 		String[] arr = db.fetchLatestAnnouncement();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -42,7 +42,7 @@ public class Database {
 			checkLogin = "false";
 		}
 	}catch(Exception e) {
-		System.out.println("Error While Validating"+e);
+		e.printStackTrace();
 		checkLogin = "false";
 	}
 	return checkLogin;
@@ -115,9 +115,8 @@ public class Database {
 					String announcement = rs.getString("announcement");
 					arr[0] = title;
 					arr[1] = announcement;
-					return arr;
-					
 				}
+				return arr;	
 				
 			}catch(Exception e) {
 				e.printStackTrace();
@@ -171,7 +170,6 @@ public class Database {
 			stmtCheck = conn.createStatement();
 			rs = stmtCheck.executeQuery(queryCheck);
 			if(rs.next()) {
-				System.out.println("Yparxw san hmerominia hdh edw");
 				String queryUpdate = "UPDATE `Statistics` SET `bookings` = `bookings` + 1 WHERE `date` = '"+day+"';";
 				stmt = conn.createStatement();
 				stmt.executeUpdate(queryUpdate);

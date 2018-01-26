@@ -4,14 +4,14 @@ package ticketing;
 
 public class Flights {
 	
-	private int FlightID;
+	private int flightID;
 	private String departure;
 	private String destination;
 	private int seatsAvailable;
 	
-	public Flights(int FlightID, String departure, String destination, int seatsAvailable) {
+	public Flights(int flightID, String departure, String destination, int seatsAvailable) {
 
-		this.FlightID = FlightID;
+		this.flightID = flightID;
 		this.departure = departure;
 		this.destination = destination;
 		this.seatsAvailable = seatsAvailable;
@@ -19,7 +19,7 @@ public class Flights {
 	}
 	
 	public int getFlightID() {
-		return FlightID;
+		return flightID;
 	}
 	
 	public String getDeparture() {
