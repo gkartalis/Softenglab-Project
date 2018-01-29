@@ -131,6 +131,7 @@ public class UserPan extends JFrame {
 		
 		
 		JButton btnBookFlight = new JButton("Print Ticket");
+		btnBookFlight.setToolTipText("Press it After Completing the form to Print the Ticket");
 		btnBookFlight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 Date date = dateChooser.getDate();
@@ -190,11 +191,13 @@ public class UserPan extends JFrame {
 		contentPane.add(lblPassenger);
 		
 		txtName = new JTextField();
+		txtName.setToolTipText("Fill in the Passenger Name");
 		txtName.setBounds(684, 185, 130, 26);
 		contentPane.add(txtName);
 		txtName.setColumns(10);
 		
 		txtSurname = new JTextField();
+		txtSurname.setToolTipText("Fill in the passengers Surname");
 		txtSurname.setColumns(10);
 		txtSurname.setBounds(682, 256, 130, 26);
 		contentPane.add(txtSurname);
@@ -204,6 +207,7 @@ public class UserPan extends JFrame {
 		contentPane.add(lblSelectedFlightId);
 		
 		txtFlightID = new JTextField();
+		txtFlightID.setToolTipText("Choose a Flight from the Table");
 		txtFlightID.setEditable(false);
 		txtFlightID.setColumns(10);
 		txtFlightID.setBounds(682, 313, 130, 26);
@@ -214,6 +218,7 @@ public class UserPan extends JFrame {
 		contentPane.add(lblPassengerId);
 		
 		txtPassport = new JTextField();
+		txtPassport.setToolTipText("Fill Passport or ID number");
 		txtPassport.setColumns(10);
 		txtPassport.setBounds(682, 379, 130, 26);
 		contentPane.add(txtPassport);
