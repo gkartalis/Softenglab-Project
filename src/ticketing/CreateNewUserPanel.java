@@ -12,7 +12,8 @@ import java.awt.event.ActionEvent;
 
 
 public class CreateNewUserPanel {
-	JFrame frmAddNewUser;
+	private static CreateNewUserPanel obj = null;
+	public JFrame frmAddNewUser;
 	private JTextField txtName;
 	private JTextField txtUsername;
 	private JTextField txtSurname;
@@ -28,7 +29,6 @@ public class CreateNewUserPanel {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private static CreateNewUserPanel obj = null;
 	
 	public static CreateNewUserPanel getObj() {
 		if(obj == null) {
@@ -43,19 +43,19 @@ public class CreateNewUserPanel {
 		frmAddNewUser.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmAddNewUser.getContentPane().setLayout(null);
 		
-		JLabel lblName = new JLabel("Name");
+		final JLabel lblName = new JLabel("Name");
 		lblName.setBounds(40, 50, 61, 16);
 		frmAddNewUser.getContentPane().add(lblName);
 		
-		JLabel lblSurname = new JLabel("Surname");
+		final JLabel lblSurname = new JLabel("Surname");
 		lblSurname.setBounds(40, 85, 61, 16);
 		frmAddNewUser.getContentPane().add(lblSurname);
 		
-		JLabel lblUsername = new JLabel("Username");
+		final JLabel lblUsername = new JLabel("Username");
 		lblUsername.setBounds(40, 120, 93, 16);
 		frmAddNewUser.getContentPane().add(lblUsername);
 		
-		JLabel lblPassword = new JLabel("Password");
+		final JLabel lblPassword = new JLabel("Password");
 		lblPassword.setBounds(40, 155, 61, 16);
 		frmAddNewUser.getContentPane().add(lblPassword);
 		
@@ -78,18 +78,18 @@ public class CreateNewUserPanel {
 		txtPassword.setBounds(166, 150, 130, 26);
 		frmAddNewUser.getContentPane().add(txtPassword);
 		
-		JCheckBox checkAdmin = new JCheckBox("Check for Administrator Rights");
+		final JCheckBox checkAdmin = new JCheckBox("Check for Administrator Rights");
 		checkAdmin.setBounds(40, 186, 253, 26);
 		frmAddNewUser.getContentPane().add(checkAdmin);
 		
 		
 		//Add additional checks (dbl check password)
 		//Check if all boxes
-		JButton btnSubmit = new JButton("Submit");
+		final JButton btnSubmit = new JButton("Submit");
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 					 	int check = 0;
-					 	char[] tempPwd=txtPassword.getPassword();
+					 	final char[] tempPwd=txtPassword.getPassword();
 		                String pwd=null;
 		                pwd=String.copyValueOf(tempPwd);
 		                
@@ -101,7 +101,7 @@ public class CreateNewUserPanel {
 					if(checkAdmin.isSelected()) {
 	                		check = 1;
 	                }
-	                String query = "INSERT INTO `Users` (`name`, `surname`, `username`, `password`,`admin`)"+
+	               final String query = "INSERT INTO `Users` (`name`, `surname`, `username`, `password`,`admin`)"+
 	                	" VALUES ('"+txtName.getText()+"', '"+txtSurname.getText()+"','"+txtUsername.getText()+"','"+pwd+"','"+check+"')";              		
 					db.executeSqlQuery(query,"inserted");
 					frmAddNewUser.dispose();
@@ -114,7 +114,7 @@ public class CreateNewUserPanel {
 		btnSubmit.setBounds(40, 235, 117, 29);
 		frmAddNewUser.getContentPane().add(btnSubmit);
 		
-		JButton btnBack = new JButton("Back");
+		final JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmAddNewUser.dispose();

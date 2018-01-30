@@ -1,0 +1,203 @@
+src/ticketing/AdminPanel.java:13:	Perhaps 'contentPane' could be replaced by a local variable.
+src/ticketing/AdminPanel.java:13:	Private field 'contentPane' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/AdminPanel.java:14:	Use explicit scoping instead of the default package private level
+src/ticketing/AdminPanel.java:30:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/AdminPanel.java:40:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/AdminPanel.java:49:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/CreateNewUserPanel.java:15:	Avoid using redundant field initializer for 'obj'
+src/ticketing/CreateNewUserPanel.java:16:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/CreateNewUserPanel.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/CreateNewUserPanel.java:18:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/CreateNewUserPanel.java:19:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/CreateNewUserPanel.java:20:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/CreateNewUserPanel.java:21:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/CreateNewUserPanel.java:21:	Use explicit scoping instead of the default package private level
+src/ticketing/CreateNewUserPanel.java:26:	Overridable method 'initialize' called during object construction
+src/ticketing/CreateNewUserPanel.java:34:	Singleton is not thread safe
+src/ticketing/CreateNewUserPanel.java:90:	Parameter 'evt' is not assigned and could be declared final
+src/ticketing/CreateNewUserPanel.java:119:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/Database.java:9:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/Database.java:9:	Use explicit scoping instead of the default package private level
+src/ticketing/Database.java:10:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/Database.java:10:	Use explicit scoping instead of the default package private level
+src/ticketing/Database.java:11:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/Database.java:11:	Use explicit scoping instead of the default package private level
+src/ticketing/Database.java:22:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/ticketing/Database.java:23:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Database.java:30:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Database.java:36:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Database.java:42:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Database.java:48:	Parameter 'password' is not assigned and could be declared final
+src/ticketing/Database.java:48:	Parameter 'username' is not assigned and could be declared final
+src/ticketing/Database.java:51:	Ensure that resources like this Connection object are closed after use
+src/ticketing/Database.java:51:	Local variable 'conn' could be declared final
+src/ticketing/Database.java:57:	Avoid using Literals in Conditional Statements
+src/ticketing/Database.java:59:	Avoid using Literals in Conditional Statements
+src/ticketing/Database.java:65:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/ticketing/Database.java:66:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Database.java:72:	Parameter 'message' is not assigned and could be declared final
+src/ticketing/Database.java:72:	Parameter 'query' is not assigned and could be declared final
+src/ticketing/Database.java:73:	Ensure that resources like this Connection object are closed after use
+src/ticketing/Database.java:74:	Avoid using final local variables, turn them into fields
+src/ticketing/Database.java:74:	Ensure that resources like this Statement object are closed after use
+src/ticketing/Database.java:78:	Avoid using Literals in Conditional Statements
+src/ticketing/Database.java:85:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Database.java:90:	Parameter 'query' is not assigned and could be declared final
+src/ticketing/Database.java:92:	Ensure that resources like this Connection object are closed after use
+src/ticketing/Database.java:93:	Avoid using final local variables, turn them into fields
+src/ticketing/Database.java:93:	Ensure that resources like this Statement object are closed after use
+src/ticketing/Database.java:94:	Avoid using final local variables, turn them into fields
+src/ticketing/Database.java:94:	Ensure that resources like this ResultSet object are closed after use
+src/ticketing/Database.java:99:	Avoid unnecessary comparisons in boolean expressions
+src/ticketing/Database.java:106:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Database.java:114:	Ensure that resources like this Connection object are closed after use
+src/ticketing/Database.java:115:	Avoid using final local variables, turn them into fields
+src/ticketing/Database.java:121:	Local variable 'query2' could be declared final
+src/ticketing/Database.java:122:	Ensure that resources like this Statement object are closed after use
+src/ticketing/Database.java:123:	Ensure that resources like this ResultSet object are closed after use
+src/ticketing/Database.java:129:	Local variable 'title' could be declared final
+src/ticketing/Database.java:130:	Local variable 'announcement' could be declared final
+src/ticketing/Database.java:137:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Database.java:148:	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/ticketing/Database.java:148:	Parameter 'searchValue' is not assigned and could be declared final
+src/ticketing/Database.java:151:	Ensure that resources like this Connection object are closed after use
+src/ticketing/Database.java:151:	Local variable 'conn' could be declared final
+src/ticketing/Database.java:152:	Ensure that resources like this Statement object are closed after use
+src/ticketing/Database.java:153:	Ensure that resources like this ResultSet object are closed after use
+src/ticketing/Database.java:161:	Avoid instantiating new objects inside loops
+src/ticketing/Database.java:171:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Database.java:176:	Parameter 'day' is not assigned and could be declared final
+src/ticketing/Database.java:176:	Parameter 'sum' is not assigned and could be declared final
+src/ticketing/Database.java:178:	Ensure that resources like this Connection object are closed after use
+src/ticketing/Database.java:180:	Ensure that resources like this ResultSet object are closed after use
+src/ticketing/Database.java:181:	Ensure that resources like this Statement object are closed after use
+src/ticketing/Database.java:182:	Ensure that resources like this Statement object are closed after use
+src/ticketing/Database.java:197:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/ticketing/Database.java:198:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Database.java:203:	Parameter 'date' is not assigned and could be declared final
+src/ticketing/Database.java:204:	Ensure that resources like this Connection object are closed after use
+src/ticketing/Database.java:206:	Ensure that resources like this Statement object are closed after use
+src/ticketing/Database.java:214:	Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
+src/ticketing/Database.java:215:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/Flights.java:7:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/Flights.java:7:	Private field 'flightID' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/Flights.java:8:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/Flights.java:8:	Private field 'departure' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/Flights.java:9:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/Flights.java:9:	Private field 'destination' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/Flights.java:10:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/Flights.java:10:	Private field 'seatsAvailable' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/Flights.java:12:	Parameter 'departure' is not assigned and could be declared final
+src/ticketing/Flights.java:12:	Parameter 'destination' is not assigned and could be declared final
+src/ticketing/Flights.java:12:	Parameter 'flightID' is not assigned and could be declared final
+src/ticketing/Flights.java:12:	Parameter 'seatsAvailable' is not assigned and could be declared final
+src/ticketing/LoginApp.java:11:	Use explicit scoping instead of the default package private level
+src/ticketing/LoginApp.java:12:	Use explicit scoping instead of the default package private level
+src/ticketing/LoginApp.java:13:	Use explicit scoping instead of the default package private level
+src/ticketing/LoginApp.java:14:	Use explicit scoping instead of the default package private level
+src/ticketing/LoginApp.java:17:	It is a good practice to call super() in a constructor
+src/ticketing/LoginApp.java:28:	Local variable 'lblUsername' could be declared final
+src/ticketing/LoginApp.java:32:	Local variable 'lblPassword' could be declared final
+src/ticketing/LoginApp.java:45:	Local variable 'btnLogin' could be declared final
+src/ticketing/LoginApp.java:48:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/LoginApp.java:50:	Local variable 'tempPWD' could be declared final
+src/ticketing/LoginApp.java:53:	Avoid using Literals in Conditional Statements
+src/ticketing/LoginApp.java:53:	Use equals() to compare strings instead of '==' or '!='
+src/ticketing/LoginApp.java:56:	Local variable 'adminP' could be declared final
+src/ticketing/LoginApp.java:59:	Avoid using Literals in Conditional Statements
+src/ticketing/LoginApp.java:59:	Use equals() to compare strings instead of '==' or '!='
+src/ticketing/LoginApp.java:62:	Local variable 'userP' could be declared final
+src/ticketing/LoginApp.java:77:	Local variable 'btnReset' could be declared final
+src/ticketing/LoginApp.java:79:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/LoginApp.java:88:	Local variable 'lblAirTicketApp' could be declared final
+src/ticketing/Main.java:3:	All methods are static.  Consider using a utility class instead. Alternatively, you could add a private constructor or make the class abstract to silence this warning.
+src/ticketing/Main.java:3:	Avoid short class names like Main
+src/ticketing/Main.java:5:	Parameter 'args' is not assigned and could be declared final
+src/ticketing/Main.java:6:	Local variable 'loginApp' could be declared final
+src/ticketing/PostAnouncement.java:15:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/PostAnouncement.java:15:	Use explicit scoping instead of the default package private level
+src/ticketing/PostAnouncement.java:16:	Avoid excessively long variable names like txtAnnouncementTitle
+src/ticketing/PostAnouncement.java:16:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/PostAnouncement.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/PostAnouncement.java:17:	Use explicit scoping instead of the default package private level
+src/ticketing/PostAnouncement.java:23:	Overridable method 'initialize' called during object construction
+src/ticketing/PostAnouncement.java:25:	Avoid using redundant field initializer for 'obj'
+src/ticketing/PostAnouncement.java:25:	Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+src/ticketing/PostAnouncement.java:28:	Singleton is not thread safe
+src/ticketing/PostAnouncement.java:43:	Local variable 'txtAnnouncement' could be declared final
+src/ticketing/PostAnouncement.java:49:	Local variable 'btnPost' could be declared final
+src/ticketing/PostAnouncement.java:51:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/PostAnouncement.java:56:	Local variable 'query' could be declared final
+src/ticketing/PostAnouncement.java:66:	Local variable 'btnReset' could be declared final
+src/ticketing/PostAnouncement.java:68:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/PostAnouncement.java:76:	Local variable 'btnBack' could be declared final
+src/ticketing/PostAnouncement.java:78:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/PostAnouncement.java:90:	Avoid excessively long variable names like lblAnnouncementTitle
+src/ticketing/PostAnouncement.java:90:	Local variable 'lblAnnouncementTitle' could be declared final
+src/ticketing/PostAnouncement.java:94:	Local variable 'lblAnnouncement' could be declared final
+src/ticketing/UserPan.java:32:	The class 'UserPan' has a Cyclomatic Complexity of 6 (Highest = 10).
+src/ticketing/UserPan.java:33:	Use explicit scoping instead of the default package private level
+src/ticketing/UserPan.java:34:	Perhaps 'contentPane' could be replaced by a local variable.
+src/ticketing/UserPan.java:34:	Private field 'contentPane' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/UserPan.java:35:	Private field 'txtSearch' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/UserPan.java:36:	Private field 'flightsTable' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/UserPan.java:37:	Private field 'txtName' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/UserPan.java:38:	Private field 'txtSurname' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/UserPan.java:39:	Private field 'txtFlightID' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/UserPan.java:40:	Private field 'txtPassport' could be made final; it is only initialized in the declaration or constructor.
+src/ticketing/UserPan.java:42:	It is a good practice to call super() in a constructor
+src/ticketing/UserPan.java:42:	The constructor 'UserPan' has a Cyclomatic Complexity of 10.
+src/ticketing/UserPan.java:44:	Local variable 'arr' could be declared final
+src/ticketing/UserPan.java:59:	Local variable 'lblDate' could be declared final
+src/ticketing/UserPan.java:63:	Local variable 'btnSearch' could be declared final
+src/ticketing/UserPan.java:65:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/UserPan.java:74:	Local variable 'scrollPane' could be declared final
+src/ticketing/UserPan.java:86:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/UserPan.java:88:	Local variable 'value' could be declared final
+src/ticketing/UserPan.java:93:	Local variable 'model' could be declared final
+src/ticketing/UserPan.java:96:	Local variable 'panel' could be declared final
+src/ticketing/UserPan.java:101:	Local variable 'announcementTitle' could be declared final
+src/ticketing/UserPan.java:106:	Local variable 'announcement' could be declared final
+src/ticketing/UserPan.java:114:	Local variable 'lblFlightInfo' could be declared final
+src/ticketing/UserPan.java:118:	Local variable 'dateChooser' could be declared final
+src/ticketing/UserPan.java:124:	Local variable 'btnBookFlight' could be declared final
+src/ticketing/UserPan.java:127:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/UserPan.java:128:	Local variable 'date' could be declared final
+src/ticketing/UserPan.java:133:	Local variable 'df' could be declared final
+src/ticketing/UserPan.java:133:	When instantiating a SimpleDateFormat object, specify a Locale
+src/ticketing/UserPan.java:134:	Local variable 'day' could be declared final
+src/ticketing/UserPan.java:139:	Local variable 'sum' could be declared final
+src/ticketing/UserPan.java:145:	Avoid printStackTrace(); use a logger call instead.
+src/ticketing/UserPan.java:155:	Local variable 'rdbtnBusiness' could be declared final
+src/ticketing/UserPan.java:159:	Local variable 'rdbtnEconomy' could be declared final
+src/ticketing/UserPan.java:163:	Local variable 'group' could be declared final
+src/ticketing/UserPan.java:167:	Local variable 'lblSelectClass' could be declared final
+src/ticketing/UserPan.java:171:	Local variable 'lblName' could be declared final
+src/ticketing/UserPan.java:175:	Avoid excessively long variable names like lblPassengerSurname
+src/ticketing/UserPan.java:175:	Local variable 'lblPassengerSurname' could be declared final
+src/ticketing/UserPan.java:179:	Local variable 'lblPassenger' could be declared final
+src/ticketing/UserPan.java:196:	Avoid excessively long variable names like lblSelectedFlightId
+src/ticketing/UserPan.java:196:	Local variable 'lblSelectedFlightId' could be declared final
+src/ticketing/UserPan.java:207:	Local variable 'lblPassengerId' could be declared final
+src/ticketing/UserPan.java:221:	Local variable 'list' could be declared final
+src/ticketing/UserPan.java:222:	Local variable 'model' could be declared final
+src/ticketing/UserPan.java:224:	Local variable 'title' could be declared final
+src/ticketing/ViewStats.java:16:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/ViewStats.java:16:	Use explicit scoping instead of the default package private level
+src/ticketing/ViewStats.java:17:	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/ticketing/ViewStats.java:21:	Overridable method 'initialize' called during object construction
+src/ticketing/ViewStats.java:24:	Avoid using redundant field initializer for 'obj'
+src/ticketing/ViewStats.java:24:	Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
+src/ticketing/ViewStats.java:29:	Singleton is not thread safe
+src/ticketing/ViewStats.java:36:	Local variable 'db' could be declared final
+src/ticketing/ViewStats.java:43:	Avoid excessively long variable names like lblViewStatitsicsFor
+src/ticketing/ViewStats.java:43:	Local variable 'lblViewStatitsicsFor' could be declared final
+src/ticketing/ViewStats.java:47:	Local variable 'dateChooser' could be declared final
+src/ticketing/ViewStats.java:52:	Local variable 'lblTicketsSold' could be declared final
+src/ticketing/ViewStats.java:61:	Local variable 'btnShow' could be declared final
+src/ticketing/ViewStats.java:64:	Parameter 'e' is not assigned and could be declared final
+src/ticketing/ViewStats.java:66:	Local variable 'df' could be declared final
+src/ticketing/ViewStats.java:66:	When instantiating a SimpleDateFormat object, specify a Locale
+src/ticketing/ViewStats.java:67:	Local variable 'date' could be declared final
+src/ticketing/ViewStats.java:73:	Local variable 'btnBack' could be declared final
+src/ticketing/ViewStats.java:76:	Parameter 'e' is not assigned and could be declared final

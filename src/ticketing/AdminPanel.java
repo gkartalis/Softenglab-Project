@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings("serial")
 public class AdminPanel extends JFrame {
 
 	private JPanel contentPane;
@@ -15,6 +16,7 @@ public class AdminPanel extends JFrame {
 	 * Create the frame.
 	 */
 	public AdminPanel() {
+		super();
 		setTitle("Administrator Panel");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -23,7 +25,7 @@ public class AdminPanel extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnCreate = new JButton("Create New User");
+		final JButton btnCreate = new JButton("Create New User");
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					 CreateNewUserPanel.getObj().frmAddNewUser.setVisible(true);
@@ -33,7 +35,7 @@ public class AdminPanel extends JFrame {
 		btnCreate.setBounds(155, 42, 147, 46);
 		contentPane.add(btnCreate);
 		
-		JButton btnStatistics = new JButton("View Statistics");
+		final JButton btnStatistics = new JButton("View Statistics");
 		btnStatistics.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ViewStats.getObj().frmViewStatistics.setVisible(true);
@@ -42,7 +44,7 @@ public class AdminPanel extends JFrame {
 		btnStatistics.setBounds(155, 118, 147, 46);
 		contentPane.add(btnStatistics);
 		
-		JButton btnPost = new JButton("Post announcement");
+		final JButton btnPost = new JButton("Post announcement");
 		btnPost.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 PostAnouncement.getObj().frame.setVisible(true);

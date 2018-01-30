@@ -9,19 +9,40 @@ public class Database {
 	Connection conn;
 	PreparedStatement stmt;
 	ResultSet rs;
-	
+	public Database() {
+		super();
+	}
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/airtickets","root","phpGuru1!");
-			return conn;
+			
 			
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			return null;
+			
+		}finally {
+				try {
+					if(rs!=null)
+						rs.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+				try {
+					if(conn!=null)
+						conn.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+				try {
+					if(stmt!=null)
+						stmt.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
 		}
-		
+		return conn;
 	}
 	
 	public String checkLogin(String username, String password) {
@@ -49,15 +70,13 @@ public class Database {
 }
 	
 	public void executeSqlQuery(String query, String message) {
-		Connection conn = getConnection();
-		Statement stmt;
+		final Connection conn = getConnection();
+		final Statement stmt;
 
 		try {
 			stmt = conn.createStatement();
 			if(stmt.executeUpdate(query) == 1) {
 				JOptionPane.showMessageDialog(null,message+" Succesfully");
-				
-				
 			}else {
 				JOptionPane.showMessageDialog(null,message+" Not Succesfully");
 			}
@@ -70,9 +89,9 @@ public class Database {
 	
 	public boolean isEmptySqlTable(String query) {
 		boolean result = true;
-		Connection conn = getConnection();
-		Statement stmt;
-		ResultSet rs;
+		final Connection conn = getConnection();
+		final Statement stmt;
+		final ResultSet rs;
 		
 		try {
 			stmt = conn.createStatement();
@@ -80,9 +99,6 @@ public class Database {
 			if(rs.next() == true) {
 				result = false;
 				//Announcement Table Not Empty
-				
-			}else {
-				//Announcement Table Empty
 				
 			}
 		} catch (SQLException e) {
@@ -95,12 +111,11 @@ public class Database {
 	
 	
 	public String[] fetchLatestAnnouncement() {
-		Connection conn = getConnection();
-		String query = "SELECT 1 FROM `announcements` LIMIT 1;";
+		final Connection conn = getConnection();
+		final String query = "SELECT 1 FROM `announcements` LIMIT 1;";
 		
 		String[] arr = new String[2];
-		arr[0] = "";
-		arr[1] = "";
+		
 		if(!isEmptySqlTable(query)) {
 			
 			String query2 = "SELECT * FROM `announcements` WHERE `ID` = (SELECT MAX(ID) FROM `announcements`);";
@@ -116,11 +131,11 @@ public class Database {
 					arr[0] = title;
 					arr[1] = announcement;
 				}
-				return arr;	
+					
 				
-			}catch(Exception e) {
+			}catch(SQLException e) {
 				e.printStackTrace();
-				return arr;
+				
 			}//catch
 		}//if
 		return arr;
@@ -132,11 +147,11 @@ public class Database {
 	
 	public ArrayList<Flights> flightList(String searchValue){
         
-		   ArrayList<Flights> list = new ArrayList<Flights>();
+		   final ArrayList<Flights> list = new ArrayList<Flights>();
 		   Connection conn = getConnection();
 		   Statement st;
 		   ResultSet rs;
-		   String searchQuery = "SELECT * FROM `flights` WHERE CONCAT(`flightID`, `departure`, `destination`, `seatsAvailable`) LIKE '%"+searchValue+"%'";
+		   final String searchQuery = "SELECT * FROM `flights` WHERE CONCAT(`flightID`, `departure`, `destination`, `seatsAvailable`) LIKE '%"+searchValue+"%'";
 	   try {
 		   st = conn.createStatement();
 		   rs = st.executeQuery(searchQuery);
@@ -160,8 +175,8 @@ public class Database {
 	
 	public void addStatistics(int sum, String day) {
 		
-		Connection conn = getConnection();
-		String queryCheck = "SELECT * FROM `Statistics` WHERE `date` = '"+ day +"' ";
+		final Connection conn = getConnection();
+		final String queryCheck = "SELECT * FROM `Statistics` WHERE `date` = '"+ day +"' ";
 		ResultSet rs;
 		Statement stmt;
 		Statement stmtCheck;
@@ -170,11 +185,11 @@ public class Database {
 			stmtCheck = conn.createStatement();
 			rs = stmtCheck.executeQuery(queryCheck);
 			if(rs.next()) {
-				String queryUpdate = "UPDATE `Statistics` SET `bookings` = `bookings` + 1 WHERE `date` = '"+day+"';";
+				final String queryUpdate = "UPDATE `Statistics` SET `bookings` = `bookings` + 1 WHERE `date` = '"+day+"';";
 				stmt = conn.createStatement();
 				stmt.executeUpdate(queryUpdate);
 			}else {
-				String queryInsert = "INSERT INTO `Statistics` (`date`, `bookings`) VALUES ('"+day+"', 1);";
+				final String queryInsert = "INSERT INTO `Statistics` (`date`, `bookings`) VALUES ('"+day+"', 1);";
 				stmt = conn.createStatement();
 				stmt.executeUpdate(queryInsert);
 			}
@@ -186,8 +201,8 @@ public class Database {
 	}
 	//show Statistics by pressing Show button on ViewStats panel
 	public int showStatistics(String date) {
-		Connection conn = getConnection();
-		String query = "SELECT * FROM `Statistics` WHERE `date` = '"+ date +"' ";
+		final Connection conn = getConnection();
+		final String query = "SELECT * FROM `Statistics` WHERE `date` = '"+ date +"' ";
 		Statement stmt;
 		int bookings = 0;
 		try {
@@ -196,11 +211,10 @@ public class Database {
 			while(rs.next()) {
 				bookings = rs.getInt("bookings");
 			}
-			return bookings;
 		}catch(Exception e) {
 			e.printStackTrace();
-			return bookings;
 		}
+		return bookings;
 	}
 }
 

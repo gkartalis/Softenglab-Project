@@ -34,4 +34,5 @@ public class Flights {
 		return seatsAvailable;
 	}
 	
+	
 }

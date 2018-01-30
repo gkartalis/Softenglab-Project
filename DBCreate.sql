@@ -21,7 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Βάση δεδομένων: `airtickets`
 --
-
+DROP DATABASE IF EXISTS `airtickets`;
+CREATE DATABASE `airtickets`;
 -- --------------------------------------------------------
 
 --

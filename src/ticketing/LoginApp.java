@@ -5,6 +5,7 @@ import java.awt.event.*;
 
 import javax.swing.border.EmptyBorder;
 
+@SuppressWarnings("serial")
 public class LoginApp extends JFrame {
 
 	 JPanel contentPane;
